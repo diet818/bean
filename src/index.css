@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 0 0% 18%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 18%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 18%;
+    --radius: 1.75rem;
+    
+    /* Custom BeanCraft colors */
+    --sky-blue: #AEE1FF;
+    --coral-red: #F26B5B;
+    --light-gray: #F1F1F1;
+    --charcoal: #2F2F2F;
+    --medium-gray: #5A5A5A;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* 3D Can styles */
+.can-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.can-shadow {
+  filter: drop-shadow(0 28px 70px rgba(0,0,0,0.18));
+}
+
+/* Button styles */
+.btn-pill {
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-full border-2 font-medium transition-all duration-300;
+}
+
+.btn-pill-primary {
+  @apply btn-pill bg-white text-[var(--charcoal)] border-[var(--charcoal)];
+}
+
+.btn-pill-primary:hover {
+  @apply bg-[var(--charcoal)] text-white;
+  transform: translateY(-2px);
+}
+
+/* Section backgrounds */
+.bg-sky { background-color: var(--sky-blue); }
+.bg-coral { background-color: var(--coral-red); }
+.bg-light { background-color: var(--light-gray); }
+
+/* Text colors */
+.text-charcoal { color: var(--charcoal); }
+.text-medium { color: var(--medium-gray); }
+
+/* Pinned section base */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal);
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: var(--coral-red);
+  color: white;
+}

@@ -1,0 +1,138 @@
+/* App-specific styles */
+
+/* Ensure smooth scroll behavior for GSAP */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+/* Pin spacer styling */
+.pin-spacer {
+  pointer-events: none;
+}
+
+.pin-spacer > * {
+  pointer-events: auto;
+}
+
+/* 3D perspective for cans */
+.can-3d-wrapper {
+  perspective: 1000px;
+}
+
+/* Enhanced can hover effect */
+.can-shadow {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.can-shadow:hover {
+  transform: translateY(-8px) scale(1.02);
+  filter: drop-shadow(0 36px 80px rgba(0,0,0,0.22));
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .section-pinned {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  .hero-character {
+    left: 50% !important;
+    top: 15vh !important;
+    transform: translateX(-50%);
+    width: 50vw !important;
+  }
+  
+  .hero-title-line {
+    font-size: clamp(36px, 12vw, 64px) !important;
+  }
+  
+  .duo-can-left,
+  .duo-can-right {
+    width: 40vw !important;
+  }
+  
+  .duo-can-left {
+    left: 10vw !important;
+  }
+  
+  .duo-can-right {
+    left: 50vw !important;
+  }
+  
+  .spotlight-text {
+    left: 50% !important;
+    top: 10vh !important;
+    transform: translateX(-50%);
+    width: 86vw !important;
+    text-align: center;
+  }
+  
+  .spotlight-text p {
+    max-width: 100% !important;
+  }
+  
+  .spotlight-can {
+    left: 50% !important;
+    top: 45vh !important;
+    transform: translateX(-50%);
+    width: 60vw !important;
+  }
+  
+  .lineup-can-left,
+  .lineup-can-center,
+  .lineup-can-right {
+    width: 28vw !important;
+  }
+  
+  .care-can {
+    width: 50vw !important;
+  }
+  
+  .lifestyle-title {
+    left: 50% !important;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  nav .hidden {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-float {
+    animation: none;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--coral-red);
+  outline-offset: 2px;
+}
+
+/* Smooth image loading */
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+img[loading] {
+  opacity: 0;
+}
